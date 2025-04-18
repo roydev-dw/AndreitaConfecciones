@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-theme-rosa: #f2b6c1;
+  --color-theme-indigo: #ace5f2;
+  --color-theme-purpura: #cdc1ff;
+  --color-theme-hueso: #faf9f6;
+  --color-theme-negro: #1b1833;
+
+  --font-titulo: "Noto Naskh Arabic Variable", serif;
+  --default-font-family: "Josefin Sans Variable", sans-serif;
+}
+
+body {
+  background-color: var(--color-theme-hueso);
+  color: var(--color-theme-negro);
+}

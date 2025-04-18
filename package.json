@@ -1,0 +1,26 @@
+{
+  "name": "primera-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write \"**/*.{astro,js,ts,jsx,tsx,css,html}\""
+  },
+  "dependencies": {
+    "@fontsource-variable/josefin-sans": "^5.2.5",
+    "@fontsource-variable/noto-naskh-arabic": "^5.2.5",
+    "@tailwindcss/vite": "^4.1.4",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "astro": "^5.7.0",
+    "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}
