@@ -1,55 +1,77 @@
----
-
----
-
-<header
-  class="fixed top-0 right-0 left-0 z-10 h-auto bg-white/30 backdrop-blur-sm"
->
+<header class="fixed top-0 right-0 left-0 z-10 h-36 bg-white backdrop-blur-sm">
   <div
-    class="mx-auto flex max-w-5xl items-center justify-between px-4 py-6 text-lg"
+    class="mx-auto flex h-full max-w-5xl items-center justify-between px-4 py-6 text-lg"
   >
-    <a href="/"
-      ><img
+    <a href="/">
+      <img
         src="/logo-andreita-confecciones.webp"
         alt="Logo de Andreita Confecciones"
         class="w-40"
-      /></a
-    >
+      />
+    </a>
     <nav
       class="flex flex-row"
       role="navigation"
       aria-label="Navegación principal"
     >
-      <ul class="flex flex-row justify-between">
+      <ul class="flex flex-row justify-between font-medium md:text-xl">
         <li>
           <a
-            href="/"
+            href="#inicio"
             class="hover:bg-theme-indigo px-6 py-4 transition-colors duration-300"
-            >Inicio</a
           >
+            Inicio
+          </a>
         </li>
         <li>
           <a
-            href="/productos"
+            href="#productos"
             class="hover:bg-theme-indigo px-6 py-4 transition-colors duration-300"
-            >Productos</a
           >
+            Productos
+          </a>
         </li>
         <li>
           <a
-            href="/sobre-mi"
+            href="#sobre-mi"
             class="hover:bg-theme-indigo px-6 py-4 transition-colors duration-300"
-            >Sobre mí</a
           >
+            Sobre mí
+          </a>
         </li>
         <li>
           <a
-            href="/contacto"
+            href="#contacto"
             class="hover:bg-theme-indigo px-6 py-4 transition-colors duration-300"
-            >Contacto</a
           >
+            Contacto
+          </a>
         </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const offset = 200;
+
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+
+    scrollLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const targetId = link.getAttribute("href")?.substring(1);
+        const targetElement = document.getElementById(targetId || "");
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - offset,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  });
+</script>

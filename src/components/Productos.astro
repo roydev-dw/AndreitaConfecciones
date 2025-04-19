@@ -1,0 +1,22 @@
+---
+import TarjetaProducto from "../components/TarjetaProducto.astro";
+import { productos, type Producto } from "../data/productos";
+---
+
+<section id="productos" class="mx-auto max-w-7xl px-4 py-16">
+  <h2 class="mb-8 text-center text-3xl font-bold text-neutral-800">
+    Productos
+  </h2>
+
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      productos.map((producto: Producto) => (
+        <TarjetaProducto
+          titulo={producto.titulo}
+          descripcion={producto.descripcion}
+          imagen={producto.imagen}
+        />
+      ))
+    }
+  </div>
+</section>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -7,9 +8,10 @@
   --color-theme-indigo: #ace5f2;
   --color-theme-purpura: #cdc1ff;
   --color-theme-hueso: #faf9f6;
-  --color-theme-negro: #1b1833;
+  --color-theme-negro: #1a1a1d;
+  --color-theme-gris: #373a40;
 
-  --font-titulo: "Noto Naskh Arabic Variable", serif;
+  --font-titulo: "Noto Serif Variable", serif;
   --default-font-family: "Josefin Sans Variable", sans-serif;
 }
 
