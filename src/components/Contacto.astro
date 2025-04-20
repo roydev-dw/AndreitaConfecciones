@@ -1,1 +1,159 @@
-<h1>Hola mundo</h1>
+<section id="contacto" class="text-theme-negro px-4 py-24">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2
+      class="font-titulo scale-y-105 transform text-5xl font-black tracking-widest uppercase"
+    >
+      Contáctame
+    </h2>
+    <p class="mt-4 mb-10 text-lg text-pretty">
+      ¿Tienes dudas, ideas o quieres un pedido personalizado? ¡Escríbeme y te
+      responderé lo antes posible!
+    </p>
+
+    <form class="space-y-6 text-left">
+      <div class="flex flex-col gap-6 md:flex-row">
+        <div class="w-full">
+          <label for="nombre" class="mb-2 block font-semibold"
+            >Nombre completo</label
+          >
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            class="border-theme-rosa text-theme-negro placeholder:text-theme-negro/40 focus:border-theme-indigo w-full rounded-xl border-2 bg-white p-3 transition outline-none"
+            placeholder="Tu nombre completo"
+          />
+        </div>
+
+        <div class="w-full">
+          <label for="telefono" class="mb-2 block font-semibold">Teléfono</label
+          >
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            required
+            pattern="^\+?56\s?9\d{4}\s?\d{4}$"
+            title="Ingresa un número válido como +56 9 1234 5678"
+            class="border-theme-rosa text-theme-negro placeholder:text-theme-negro/40 focus:border-theme-indigo w-full rounded-xl border-2 bg-white p-3 transition outline-none"
+            placeholder="+56 9 1234 5678"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="email" class="mb-2 block font-semibold"
+          >Correo electrónico</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="border-theme-rosa text-theme-negro placeholder:text-theme-negro/40 focus:border-theme-indigo w-full rounded-xl border-2 bg-white p-3 transition outline-none"
+          placeholder="ejemplo@email.com"
+        />
+      </div>
+
+      <div>
+        <label for="mensaje" class="mb-2 block font-semibold">Mensaje</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="5"
+          required
+          class="border-theme-rosa text-theme-negro placeholder:text-theme-negro/40 focus:border-theme-indigo w-full rounded-xl border-2 bg-white p-3 transition outline-none"
+          placeholder="Cuéntame qué necesitas ❤️"></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-theme-rosa hover:text-theme-negro hover:bg-theme-indigo mt-6 inline-block transform cursor-pointer px-8 py-3 font-semibold text-white transition-all duration-300 ease-in-out hover:scale-105 md:text-lg lg:text-xl xl:text-2xl"
+      >
+        Enviar mensaje
+      </button>
+    </form>
+  </div>
+</section>
+
+<div
+  id="modal-error"
+  class="fixed inset-0 z-20 hidden bg-black/70 backdrop-blur-md"
+>
+  <div
+    class="text-theme-negro absolute top-1/2 left-1/2 flex h-[40%] max-h-[90%] w-[50%] max-w-4xl -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center rounded-xl bg-white p-8 text-center shadow-2xl"
+  >
+    <button
+      class="cerrar-modal text-theme-negro hover:text-theme-rosa absolute top-4 right-4 text-5xl font-bold transition"
+      aria-label="Cerrar"
+    >
+      &times;
+    </button>
+
+    <h3 class="mb-4 text-2xl font-bold">
+      ¡Lo sentimos, debes ingresar un número de teléfono válido.
+    </h3>
+    <p id="modal-message" class="mb-6 max-w-xl text-base leading-relaxed">
+      Hubo un error con el formulario.
+    </p>
+
+    <button
+      class="cerrar-modal bg-theme-rosa hover:bg-theme-indigo rounded-full px-8 py-3 font-semibold text-white transition"
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    emailjs.init("O7HmWSJ70X_8HMiHt");
+
+    const form = document.querySelector("form");
+    const telefonoInput = document.getElementById("telefono");
+    const modal = document.getElementById("modal-error");
+    const modalMessage = document.getElementById("modal-message");
+    const cerrarModal = document.querySelectorAll(".cerrar-modal");
+
+    if (
+      form &&
+      telefonoInput instanceof HTMLInputElement &&
+      modal &&
+      modalMessage
+    ) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const telefono = telefonoInput.value.trim();
+        const telefonoValido = /^\+?56\s?9\d{4}\s?\d{4}$/.test(telefono);
+
+        if (!telefonoValido) {
+          modalMessage.textContent =
+            "Por favor, usa este formato de celular +56 9 1234 5678.";
+          modal.classList.remove("hidden");
+          return;
+        }
+
+        emailjs
+          .sendForm("service_9094dan", "template_luu31w7", form)
+          .then(() => {
+            alert("¡Mensaje enviado con éxito! 🥳");
+            form.reset();
+          })
+          .catch((error) => {
+            console.error("Error al enviar:", error);
+            modalMessage.textContent =
+              "Ocurrió un error al enviar el mensaje. Intenta nuevamente.";
+            modal.classList.remove("hidden");
+          });
+      });
+
+      cerrarModal.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          modal.classList.add("hidden");
+        });
+      });
+    }
+  });
+</script>

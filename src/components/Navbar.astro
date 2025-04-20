@@ -25,7 +25,8 @@
         </li>
         <li>
           <a
-            href="#productos"
+            href="#top"
+            data-offset="250"
             class="hover:bg-theme-indigo px-6 py-4 transition-colors duration-300"
           >
             Productos
@@ -34,6 +35,7 @@
         <li>
           <a
             href="#sobre-mi"
+            data-offset="120"
             class="hover:bg-theme-indigo px-6 py-4 transition-colors duration-300"
           >
             Sobre mí
@@ -54,8 +56,6 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const offset = 200;
-
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
     scrollLinks.forEach((link) => {
@@ -64,6 +64,9 @@
 
         const targetId = link.getAttribute("href")?.substring(1);
         const targetElement = document.getElementById(targetId || "");
+
+        // Leer el offset personalizado desde el enlace o usar uno por defecto
+        const offset = parseInt(link.getAttribute("data-offset") || "200", 10);
 
         if (targetElement) {
           window.scrollTo({

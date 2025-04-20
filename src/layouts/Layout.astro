@@ -14,7 +14,7 @@ const { titulo, descripcion } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -22,6 +22,7 @@ const { titulo, descripcion } = Astro.props as Props;
     <meta name="description" content={descripcion} />
     <title>{titulo}</title>
     <ClientRouter />
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   </head>
   <body>
     <Navbar />

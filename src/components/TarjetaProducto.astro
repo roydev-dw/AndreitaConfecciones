@@ -3,9 +3,9 @@ const { titulo, descripcion, imagen } = Astro.props;
 ---
 
 <div
-  class="flex flex-col items-center gap-2 rounded-2xl bg-white p-4 shadow-md"
+  class="flex flex-col items-center gap-2 bg-gray-700/5 p-4 transition-all duration-300 hover:scale-105 hover:shadow-md"
 >
-  <img src={imagen} alt={titulo} class="h-48 w-full rounded-lg object-cover" />
-  <h3 class="text-lg font-semibold text-neutral-800">{titulo}</h3>
-  <p class="text-sm text-neutral-600">{descripcion}</p>
+  <img src={imagen} alt={titulo} class="h-60 w-full object-contain" />
+  <h3 class="text-theme-negro text-lg font-semibold uppercase">{titulo}</h3>
+  <p class="text-theme-gris text-md text-center text-pretty">{descripcion}</p>
 </div>
