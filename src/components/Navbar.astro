@@ -65,7 +65,6 @@
         const targetId = link.getAttribute("href")?.substring(1);
         const targetElement = document.getElementById(targetId || "");
 
-        // Leer el offset personalizado desde el enlace o usar uno por defecto
         const offset = parseInt(link.getAttribute("data-offset") || "200", 10);
 
         if (targetElement) {
