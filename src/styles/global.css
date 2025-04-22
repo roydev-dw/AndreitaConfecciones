@@ -19,3 +19,7 @@ body {
   background-color: var(--color-theme-hueso);
   color: var(--color-theme-negro);
 }
+
+html {
+  scroll-behavior: smooth;
+}
