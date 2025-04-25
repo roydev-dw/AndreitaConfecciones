@@ -2,10 +2,37 @@
 const { titulo, descripcion, imagen } = Astro.props;
 ---
 
-<div
-  class="flex flex-col items-center gap-2 bg-gray-700/5 p-4 transition-all duration-300 hover:scale-105 hover:shadow-md"
->
-  <img src={imagen} alt={titulo} class="h-60 w-full object-contain" />
-  <h3 class="text-theme-negro text-lg font-semibold uppercase">{titulo}</h3>
-  <p class="text-theme-gris text-md text-center text-pretty">{descripcion}</p>
+<div class="group relative overflow-hidden">
+  <div
+    class="relative flex flex-col items-center bg-gray-700/5 p-4 transition-all duration-300"
+  >
+    <img
+      src={imagen}
+      alt={titulo}
+      class="h-[350px] w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+    />
+    <div
+      class="pointer-events-none absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+    >
+    </div>
+    <a
+      href="https://api.whatsapp.com/send?phone=56968058495&text=Hola,%20me%20interesa%20tu%20producto!"
+      class="absolute right-0 bottom-0 left-0 z-20 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span
+        class="bg-theme-rosa hover:bg-theme-indigo hover:text-theme-negro w-full px-6 py-2 text-center text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+      >
+        Ir a comprar
+      </span>
+    </a>
+  </div>
+
+  <!-- Botón bien posicionado abajo -->
+
+  <div class="mt-10 flex flex-col items-start gap-2">
+    <h3 class="text-theme-negro text-lg font-semibold uppercase">{titulo}</h3>
+    <p class="text-theme-gris text-md text-pretty">{descripcion}</p>
+  </div>
 </div>
