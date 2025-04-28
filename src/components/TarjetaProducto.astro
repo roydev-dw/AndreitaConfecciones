@@ -4,12 +4,12 @@ const { titulo, descripcion, imagen } = Astro.props;
 
 <div class="group relative overflow-hidden">
   <div
-    class="relative flex flex-col items-center bg-gray-700/5 p-4 transition-all duration-300"
+    class="relative flex flex-col items-center rounded-t-xl bg-gray-700/5 p-4 transition-all duration-300"
   >
     <img
       src={imagen}
       alt={titulo}
-      class="h-[350px] w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+      class="aspect-[21/9] object-contain p-6 transition-transform duration-300 group-hover:scale-105 md:aspect-square"
     />
     <div
       class="pointer-events-none absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -17,7 +17,7 @@ const { titulo, descripcion, imagen } = Astro.props;
     </div>
     <a
       href="https://api.whatsapp.com/send?phone=56968058495&text=Hola,%20me%20interesa%20tu%20producto!"
-      class="absolute right-0 bottom-0 left-0 z-20 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      class="absolute right-0 bottom-0 left-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-100 md:opacity-0"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -28,11 +28,14 @@ const { titulo, descripcion, imagen } = Astro.props;
       </span>
     </a>
   </div>
-
-  <!-- Botón bien posicionado abajo -->
-
-  <div class="mt-10 flex flex-col items-start gap-2">
-    <h3 class="text-theme-negro text-lg font-semibold uppercase">{titulo}</h3>
-    <p class="text-theme-gris text-md text-pretty">{descripcion}</p>
+  <div
+    class="flex flex-col items-start rounded-b-xl bg-gray-700/5 p-2 md:mt-2 md:bg-transparent md:p-0"
+  >
+    <h3 class="text-theme-negro text-md font-semibold uppercase 2xl:text-lg">
+      {titulo}
+    </h3>
+    <p class="text-theme-gris text-sm text-pretty 2xl:text-lg">
+      {descripcion}
+    </p>
   </div>
 </div>

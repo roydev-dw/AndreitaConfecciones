@@ -2,7 +2,7 @@
   class="fixed top-0 right-0 left-0 z-10 h-20 bg-white shadow-lg backdrop-blur-sm 2xl:h-36"
 >
   <div
-    class="text-md mx-auto flex h-full max-w-4xl items-center justify-between px-4 py-6 2xl:max-w-6xl 2xl:text-lg"
+    class="text-md mx-auto flex h-full max-w-4xl items-center justify-around py-6 md:justify-between 2xl:max-w-6xl 2xl:text-lg"
   >
     <a href="/inicio">
       <img
@@ -12,68 +12,141 @@
       />
     </a>
     <nav
-      class="flex flex-row"
+      class="flex flex-row md:flex md:flex-row md:items-center md:justify-between"
       role="navigation"
       aria-label="Navegación principal"
     >
-      <ul class="flex flex-row justify-between text-sm font-medium 2xl:text-lg">
+      <button
+        class="text-theme-gris text-5xl transition-all duration-300 md:hidden"
+        id="hamburger-button"
+      >
+        &#9776;
+      </button>
+      <ul
+        id="nav-links"
+        class="text-md hidden flex-row justify-between font-medium md:flex md:flex-row md:gap-6 2xl:text-lg"
+      >
         <li>
           <a
             href="#inicio"
             class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+            >Inicio</a
           >
-            Inicio
-          </a>
         </li>
         <li>
           <a
             href="#top"
             class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+            >Productos</a
           >
-            Productos
-          </a>
         </li>
         <li>
           <a
             href="#contacto"
             class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+            >Contacto</a
           >
-            Contacto
-          </a>
         </li>
         <li>
           <a
             href="#sobre-mi"
             class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+            >Sobre mí</a
           >
-            Sobre mí
-          </a>
         </li>
       </ul>
     </nav>
   </div>
+
+  <!-- Menú para pantallas pequeñas -->
+  <div id="mobile-menu" class="hidden bg-white md:hidden">
+    <ul
+      class="text-md flex flex-col items-center gap-2 pb-4 font-semibold 2xl:text-lg"
+    >
+      <li>
+        <a
+          href="#inicio"
+          class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="#top"
+          class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+          >Productos</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contacto"
+          class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+          >Contacto</a
+        >
+      </li>
+      <li>
+        <a
+          href="#sobre-mi"
+          class="hover:bg-theme-indigo px-4 py-2 transition-colors duration-300 2xl:px-6 2xl:py-4"
+          >Sobre mí</a
+        >
+      </li>
+    </ul>
+  </div>
 </header>
 
-<!-- <script>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+    const hamburgerButton = document.getElementById("hamburger-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    scrollLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
+    if (hamburgerButton && mobileMenu) {
+      hamburgerButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
 
-        const targetId = link.getAttribute("href")?.substring(1);
-        const targetElement = document.getElementById(targetId || "");
-
-        const offset = parseInt(link.getAttribute("data-offset") || "200", 10);
-
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - offset,
-            behavior: "smooth",
-          });
+        // Cambiar el ícono de hamburguesa a "cerrar"
+        if (mobileMenu.classList.contains("hidden")) {
+          hamburgerButton.innerHTML = "&#9776;"; // ícono hamburguesa
+        } else {
+          hamburgerButton.innerHTML = "&times;"; // ícono de cerrar
         }
       });
+    }
+
+    // Cerrar el menú cuando un enlace es presionado dentro del mobile-menu
+    if (mobileMenu) {
+      mobileMenu.addEventListener("click", (event) => {
+        const target = event.target as HTMLElement | null;
+        if (target && target.tagName === "A" && mobileMenu) {
+          mobileMenu.classList.add("hidden");
+
+          // Restaurar el ícono de hamburguesa cuando se cierre el menú
+          if (hamburgerButton) {
+            hamburgerButton.innerHTML = "&#9776;";
+          }
+        }
+      });
+    }
+
+    // Cerrar el menú si se hace clic fuera del menú
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement | null;
+
+      if (
+        target &&
+        !target.closest("#mobile-menu") &&
+        !target.closest("#hamburger-button") &&
+        !target.closest("#nav-links")
+      ) {
+        if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+
+          // Restaurar el ícono de hamburguesa cuando se cierre el menú
+          if (hamburgerButton) {
+            hamburgerButton.innerHTML = "&#9776;";
+          }
+        }
+      }
     });
   });
-</script> -->
+</script>

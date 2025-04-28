@@ -1,20 +1,23 @@
 ---
+import BotonWhatsapp from "./BotonWhatsapp.astro";
 import SocialMedia from "./SocialMedia.astro";
 ---
 
 <section
   id="sobre-mi"
-  class="bg-theme-purpura mt-52 mb-52 flex w-full flex-col items-center p-4"
+  class="bg-theme-purpura mt-14 mb-52 flex w-full scroll-mt-16 flex-col items-center p-4 2xl:mt-52 2xl:mb-52 2xl:scroll-mt-8"
 >
-  <div class="mt-52 mb-6 flex max-w-7xl justify-start">
+  <div class="mt-14 mb-6 flex max-w-7xl justify-start 2xl:mt-52">
     <h2
-      class="font-titulo scale-y-105 transform text-5xl font-black tracking-widest uppercase"
+      class="font-titulo transform text-3xl font-black uppercase 2xl:mb-14 2xl:text-5xl"
     >
       🌸 Sobre mí 🌸
     </h2>
   </div>
-  <div class="mb-52 max-w-7xl p-6">
-    <p class="prose: mb-4 leading-relaxed md:text-xl">
+  <div
+    class="text-md mt-4 mb-14 max-w-4xl p-6 2xl:mb-52 2xl:max-w-5xl 2xl:text-lg"
+  >
+    <p class="mb-4 leading-relaxed">
       ¡Hola! <strong>Soy Andreita</strong>, mamá emprendedora y apasionada por
       la costura. Mi aventura comenzó en 2015, confeccionando delantales para
       jardines Integra en Peñaflor. Tras varios cursos de costura, en 2019
@@ -22,7 +25,7 @@ import SocialMedia from "./SocialMedia.astro";
         >Andreita Confecciones.</strong
       >
     </p>
-    <p class="mb-4 leading-relaxed md:text-xl">
+    <p class="mb-4 leading-relaxed">
       Empecé creando delantales de mezclilla y lona, y con el tiempo fui
       ampliando mi <strong>catálogo con productos</strong> como porta toallas higiénicas,
       tote bags, estuches para lentes, scrunchies, rumbas y bolsitas para Pascua
@@ -30,7 +33,7 @@ import SocialMedia from "./SocialMedia.astro";
       <strong>dedicación y cariño</strong>, pensando en ofrecer productos que
       combinen funcionalidad y estilo.
     </p>
-    <p class="mb-4 leading-relaxed md:text-xl">
+    <p class="mb-4 leading-relaxed">
       Puedes encontrar mis creaciones en el <strong
         >Parque Trapiche de Peñaflor</strong
       >, Pueblito Artesanos, pasillo uno, los <strong>sábados y domingos</strong
@@ -38,17 +41,11 @@ import SocialMedia from "./SocialMedia.astro";
       ¡Gracias por apoyar este sueño hecho a mano!
     </p>
 
-    <div class="mt-12 text-center">
-      <a
-        href="https://www.instagram.com/andreita.confecciones_/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-theme-indigo hover:bg-theme-rosa text-theme-negro mt-12 mb-14 inline-block transform px-8 py-4 font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:text-white hover:shadow-xl md:text-lg lg:text-xl xl:text-2xl"
-      >
-        Conoce más sobre Andreita Confecciones
-      </a>
-
-      <div class="mt-12 flex items-center justify-center gap-12">
+    <div class="mt-4 text-center 2xl:mt-22">
+      <div class="mb-14">
+        <BotonWhatsapp frase="Conoce más sobre Andreita Confecciones" />
+      </div>
+      <div class="flex items-center justify-center gap-12 2xl:mt-12">
         <SocialMedia type="instagram" size="h-8 w-8" />
         <SocialMedia type="facebook" size="h-8 w-8" />
         <SocialMedia type="tiktok" size="h-8 w-8" />
