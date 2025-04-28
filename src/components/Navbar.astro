@@ -17,7 +17,7 @@
       aria-label="Navegación principal"
     >
       <button
-        class="text-theme-gris text-5xl transition-all duration-300 md:hidden"
+        class="text-theme-gris text-3xl transition-all duration-300 md:hidden"
         id="hamburger-button"
       >
         &#9776;
@@ -103,24 +103,21 @@
     if (hamburgerButton && mobileMenu) {
       hamburgerButton.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
-
-        // Cambiar el ícono de hamburguesa a "cerrar"
         if (mobileMenu.classList.contains("hidden")) {
-          hamburgerButton.innerHTML = "&#9776;"; // ícono hamburguesa
+          hamburgerButton.innerHTML = "&#9776;";
         } else {
-          hamburgerButton.innerHTML = "&times;"; // ícono de cerrar
+          hamburgerButton.innerHTML = "&times;";
+          hamburgerButton.classList.remove("text-4xl");
+          hamburgerButton.classList.add("text-5xl");
         }
       });
     }
 
-    // Cerrar el menú cuando un enlace es presionado dentro del mobile-menu
     if (mobileMenu) {
       mobileMenu.addEventListener("click", (event) => {
         const target = event.target as HTMLElement | null;
         if (target && target.tagName === "A" && mobileMenu) {
           mobileMenu.classList.add("hidden");
-
-          // Restaurar el ícono de hamburguesa cuando se cierre el menú
           if (hamburgerButton) {
             hamburgerButton.innerHTML = "&#9776;";
           }
@@ -128,10 +125,8 @@
       });
     }
 
-    // Cerrar el menú si se hace clic fuera del menú
     document.addEventListener("click", (event) => {
       const target = event.target as HTMLElement | null;
-
       if (
         target &&
         !target.closest("#mobile-menu") &&
@@ -140,8 +135,6 @@
       ) {
         if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
           mobileMenu.classList.add("hidden");
-
-          // Restaurar el ícono de hamburguesa cuando se cierre el menú
           if (hamburgerButton) {
             hamburgerButton.innerHTML = "&#9776;";
           }
