@@ -1,0 +1,90 @@
+---
+interface Props {
+  imagenes: { src: string; alt: string }[];
+  fondo?: boolean;
+  ratio?: string;
+  height?: string;
+  width?: string;
+  object?: string;
+  filtro?: string;
+}
+
+const {
+  imagenes,
+  fondo = true,
+  ratio = "aspect-video",
+  height = "h-full",
+  width = "w-full",
+  object = "object-cover",
+  filtro,
+} = Astro.props;
+---
+
+<div id="default-carousel" class="relative z-0 w-full" data-carousel="slide">
+  <div
+    class={`relative z-0 overflow-hidden rounded-lg ${fondo ? "bg-gradient-to-r from-red-200 via-red-300 to-yellow-200" : ""} ${ratio}`}
+  >
+    {
+      imagenes.map((img) => (
+        <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+          <img
+            src={img.src}
+            alt={img.alt}
+            class={`absolute top-1/2 left-1/2 block ${height} ${width} ${object} -translate-x-1/2 -translate-y-1/2 py-6 ${filtro !== undefined ? filtro : "[filter:drop-shadow(0_10px_10px_rgba(0,0,0,1))]"}`}
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <button
+    type="button"
+    class="group absolute start-0 top-0 z-10 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+    data-carousel-prev
+  >
+    <span
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
+    >
+      <svg
+        class="h-4 w-4 text-black rtl:rotate-180 dark:text-gray-800"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 1 1 5l4 4"></path>
+      </svg>
+      <span class="sr-only">Previous</span>
+    </span>
+  </button>
+  <button
+    type="button"
+    class="group absolute end-0 top-0 z-10 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+    data-carousel-next
+  >
+    <span
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
+    >
+      <svg
+        class="h-4 w-4 text-black rtl:rotate-180 dark:text-gray-800"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 9 4-4-4-4"></path>
+      </svg>
+      <span class="sr-only">Next</span>
+    </span>
+  </button>
+</div>

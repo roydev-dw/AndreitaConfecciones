@@ -1,0 +1,44 @@
+---
+import Carrusel from "./Carrusel.astro";
+---
+
+<section
+  id="historia"
+  class="mx-auto mt-10 flex max-w-5xl scroll-mt-26 justify-start px-4 2xl:mt-52 2xl:max-w-7xl"
+>
+  <div class="mb-8 w-full">
+    <h2 class="font-titulo text-3xl font-bold capitalize 2xl:text-7xl">
+      De madre a emprendedora
+    </h2>
+
+    <div class="mt-4 flex w-full flex-wrap items-center justify-center gap-4">
+      <p>
+        En 2011, con cariño, una máquina de coser y una necesidad, Andreita
+        comenzó a crear delantales para el jardín infantil de su hija. Sin
+        saberlo, dio su primer paso en el mundo de la costura. En pandemia,
+        transformó ese talento en mascarillas protectoras, sin dejar de innovar
+        con productos útiles y con estilo. Hoy, después de años de aprendizaje y
+        dedicación, sigue creciendo, realizando creaciones pensadas
+        especialmente para mujeres: prácticas, cómodas y con personalidad.
+      </p>
+    </div>
+
+    <Carrusel
+      fondo={false}
+      ratio="aspect-[4/3]"
+      filtro=""
+      imagenes={[
+        { src: "/recuerdos-1.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-2.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-3.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-4.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-5.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-6.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-7.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-8.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-9.webp", alt: "Rumbas rosada con vuelos negros" },
+        { src: "/recuerdos-10.webp", alt: "Rumbas rosada con vuelos negros" },
+      ]}
+    />
+  </div>
+</section>

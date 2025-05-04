@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{astro,js,ts,jsx,tsx,css,html}\""
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@fontsource-variable/josefin-sans": "^5.2.5",
     "@fontsource-variable/noto-naskh-arabic": "^5.2.5",
     "@fontsource-variable/noto-serif": "^5.2.6",
@@ -19,8 +20,11 @@
     "@types/react-dom": "^19.1.2",
     "astro": "^5.7.0",
     "emailjs-com": "^3.2.0",
+    "flowbite": "^3.1.2",
+    "keen-slider": "^6.8.6",
     "smooth-scroll": "^16.1.3",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
