@@ -1,0 +1,40 @@
+---
+import SocialMedia from "./SocialMedia.astro";
+---
+
+<section
+  class="flex flex-col items-center justify-center gap-4 py-8 text-center md:flex-row md:gap-8"
+>
+  <div class="flex w-full flex-col items-center justify-center gap-4 md:w-1/2">
+    <h2 class="font-titulo text-3xl font-bold capitalize 2xl:text-7xl">
+      Redes Sociales
+    </h2>
+    <div class="flex w-full flex-wrap items-center justify-center gap-4">
+      <div
+        class="rounded-full [filter:drop-shadow(0_5px_5px_rgba(0,0,0,0.5))] transition hover:scale-105 hover:shadow-xl"
+      >
+        <SocialMedia type="instagram" />
+      </div>
+      <div
+        class="rounded-full [filter:drop-shadow(0_5px_5px_rgba(0,0,0,0.5))] transition hover:scale-105 hover:shadow-xl"
+      >
+        <SocialMedia type="facebook" />
+      </div>
+      <div
+        class="rounded-full [filter:drop-shadow(0_5px_5px_rgba(0,0,0,0.5))] transition hover:scale-105 hover:shadow-xl"
+      >
+        <SocialMedia type="tiktok" />
+      </div>
+      <div
+        class="rounded-full [filter:drop-shadow(0_5px_5px_rgba(0,0,0,0.5))] transition hover:scale-105 hover:shadow-xl"
+      >
+        <SocialMedia type="gmail" />
+      </div>
+      <div
+        class="rounded-full [filter:drop-shadow(0_5px_5px_rgba(0,0,0,0.5))] transition hover:scale-105 hover:shadow-xl"
+      >
+        <SocialMedia type="whatsapp" />
+      </div>
+    </div>
+  </div>
+</section>

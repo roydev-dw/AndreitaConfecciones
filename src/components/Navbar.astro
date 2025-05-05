@@ -1,8 +1,12 @@
+---
+import Iconos from "./Iconos.astro";
+---
+
 <header
   class="fixed top-0 right-0 left-0 z-10 h-20 bg-white shadow-lg backdrop-blur-sm 2xl:h-36"
 >
   <div
-    class="text-md mx-auto flex h-full max-w-4xl items-center justify-around py-6 md:justify-between 2xl:max-w-6xl 2xl:text-lg"
+    class="text-md mx-auto flex h-full max-w-4xl items-center justify-around py-6 md:max-w-2xl md:justify-between 2xl:max-w-6xl 2xl:text-lg"
   >
     <a href="#inicio">
       <img
@@ -16,15 +20,13 @@
       role="navigation"
       aria-label="Navegación principal"
     >
-      <button
-        class="text-theme-gris text-3xl transition-all duration-300 md:hidden"
-        id="hamburger-button"
-      >
-        &#9776;
+      <button class="text-theme-gris text-3xl lg:hidden" id="hamburger-button">
+        <Iconos type="hamburguesa" class="hamburguesa-icon" />
+        <Iconos type="cerrar" class="equis-icon hidden" />
       </button>
       <ul
         id="nav-links"
-        class="text-md hidden flex-row justify-between font-medium md:flex md:flex-row md:gap-6 2xl:text-lg"
+        class="text-md hidden flex-row justify-between font-medium lg:flex lg:flex-row lg:gap-6 2xl:text-lg"
       >
         <li>
           <a
@@ -59,7 +61,7 @@
   </div>
 
   <!-- Menú para pantallas pequeñas -->
-  <div id="mobile-menu" class="hidden bg-white md:hidden">
+  <div id="mobile-menu" class="hidden bg-white lg:hidden">
     <ul
       class="text-md flex flex-col items-center gap-2 pb-4 font-semibold 2xl:text-lg"
     >
@@ -99,17 +101,15 @@
   document.addEventListener("DOMContentLoaded", () => {
     const hamburgerButton = document.getElementById("hamburger-button");
     const mobileMenu = document.getElementById("mobile-menu");
+    const hamburguesaIcon = document.querySelector(".hamburguesa-icon");
+    const equisIcon = document.querySelector(".equis-icon");
 
-    if (hamburgerButton && mobileMenu) {
+    if (hamburgerButton && mobileMenu && hamburguesaIcon && equisIcon) {
       hamburgerButton.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          hamburgerButton.innerHTML = "&#9776;";
-        } else {
-          hamburgerButton.innerHTML = "&times;";
-          hamburgerButton.classList.remove("text-4xl");
-          hamburgerButton.classList.add("text-5xl");
-        }
+
+        if (hamburguesaIcon) hamburguesaIcon.classList.toggle("hidden");
+        if (equisIcon) equisIcon.classList.toggle("hidden");
       });
     }
 
@@ -118,9 +118,8 @@
         const target = event.target as HTMLElement | null;
         if (target && target.tagName === "A" && mobileMenu) {
           mobileMenu.classList.add("hidden");
-          if (hamburgerButton) {
-            hamburgerButton.innerHTML = "&#9776;";
-          }
+          if (hamburguesaIcon) hamburguesaIcon.classList.remove("hidden");
+          if (equisIcon) equisIcon.classList.add("hidden");
         }
       });
     }
@@ -135,9 +134,8 @@
       ) {
         if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
           mobileMenu.classList.add("hidden");
-          if (hamburgerButton) {
-            hamburgerButton.innerHTML = "&#9776;";
-          }
+          if (hamburguesaIcon) hamburguesaIcon.classList.remove("hidden");
+          if (equisIcon) equisIcon.classList.add("hidden");
         }
       }
     });
