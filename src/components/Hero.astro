@@ -4,27 +4,34 @@ import BotonWhatsapp from "./BotonWhatsapp.astro";
 
 <section
   id="inicio"
-  class="relative flex min-h-full w-full items-center justify-center bg-gradient-to-br from-black to-pink-300"
+  class="relative flex min-h-full w-full items-center justify-center bg-gradient-to-b from-black to-pink-300 lg:bg-none"
 >
   <div class="absolute inset-0 h-full">
     <img
-      class="absolute bottom-0 w-full border-none mask-radial-[100%_90%] mask-radial-from-40% mask-radial-to-95% mask-radial-at-bottom object-contain"
+      class="lg:drop-shadow-5xl absolute bottom-0 h-full w-full border-none mask-radial-[100%_70%] mask-radial-from-30% mask-radial-to-95% mask-radial-at-bottom sm:mask-radial-[100%_95%] sm:mask-radial-from-30% sm:mask-radial-to-95% md:mask-radial-from-30% md:mask-radial-to-80% lg:mask-none lg:object-cover lg:object-center"
       src="/cosiendo-angulo-superior.webp"
       alt=""
     />
   </div>
 
   <div
+    class="absolute inset-0 lg:bg-black/40 lg:backdrop-blur-xs 2xl:backdrop-blur-md"
+  >
+  </div>
+
+  <div
     class="text-theme-hueso/90 absolute top-0 left-0 mt-24 flex w-full flex-col items-center px-4 pb-8 text-center"
   >
-    <div class="flex max-w-3xl flex-col items-center 2xl:max-w-6xl">
+    <div
+      class="flex max-w-lg flex-col items-center md:mt-10 lg:max-w-xl 2xl:max-w-6xl"
+    >
       <h1
-        class="font-titulo mb-6 transform text-start text-5xl capitalize 2xl:text-7xl"
+        class="font-titulo mb-6 transform text-center text-5xl capitalize sm:mb-10 md:text-6xl xl:text-7xl"
       >
         Confecciones únicas con estilo propio
       </h1>
       <p
-        class="text-md mb-7 text-start leading-relaxed text-pretty 2xl:text-lg"
+        class="text-md mb-7 text-center leading-relaxed text-pretty sm:text-start md:text-lg"
       >
         No solo confecciono ropa, <strong>creo piezas</strong> que reflejan tu <strong
           >esencia</strong
@@ -32,9 +39,9 @@ import BotonWhatsapp from "./BotonWhatsapp.astro";
           >Descubre nuestras creaciones</strong
         > y encuentra el estilo que te representa.
       </p>
-      <div class="mb-14">
-        <BotonWhatsapp frase="¡Haz tu pedido por WhatsApp!" />
-      </div>
     </div>
+  </div>
+  <div class="absolute bottom-10">
+    <BotonWhatsapp frase="¡Haz tu pedido por WhatsApp!" />
   </div>
 </section>
