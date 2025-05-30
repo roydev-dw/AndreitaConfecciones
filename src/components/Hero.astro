@@ -6,24 +6,27 @@ import BotonWhatsapp from "./BotonWhatsapp.astro";
   id="inicio"
   class="relative flex min-h-full w-full items-center justify-center bg-gradient-to-b from-black to-pink-300 lg:bg-none"
 >
-  <div class="absolute inset-0 h-full">
+  <!-- Se usan 2 imagenes para manejar distintos tamaños de pantalla  -->
+  <picture class="absolute inset-0 h-full">
+    <source
+      class="lg:backdrop-blur-xl"
+      media="(min-width:1536px)"
+      srcset="/cosiendo-angulo-superior-lg.webp"
+    />
     <img
-      class="lg:drop-shadow-5xl absolute bottom-0 h-full w-full border-none mask-radial-[100%_70%] mask-radial-from-30% mask-radial-to-95% mask-radial-at-bottom sm:mask-radial-[100%_95%] sm:mask-radial-from-30% sm:mask-radial-to-95% md:mask-radial-from-30% md:mask-radial-to-80% lg:mask-none lg:object-cover lg:object-center"
+      class="lg:drop-shadow-5xl absolute bottom-0 h-full w-full border-none mask-radial-[100%_70%] mask-radial-from-30% mask-radial-to-95% mask-radial-at-bottom object-cover sm:mask-radial-[100%_95%] sm:mask-radial-from-30% sm:mask-radial-to-95% md:mask-radial-from-30% md:mask-radial-to-80% lg:mask-none lg:object-center"
       src="/cosiendo-angulo-superior.webp"
       alt=""
     />
-  </div>
+  </picture>
+
+  <div class="absolute inset-0 lg:bg-black/60"></div>
 
   <div
-    class="absolute inset-0 lg:bg-black/40 lg:backdrop-blur-xs 2xl:backdrop-blur-md"
-  >
-  </div>
-
-  <div
-    class="text-theme-hueso/90 absolute top-0 left-0 mt-24 flex w-full flex-col items-center px-4 pb-8 text-center"
+    class="text-theme-hueso/90 absolute top-0 left-0 mt-24 flex w-full flex-col items-center px-4 pb-8 text-center 2xl:mt-52"
   >
     <div
-      class="flex max-w-lg flex-col items-center md:mt-10 lg:max-w-xl 2xl:max-w-6xl"
+      class="flex max-w-lg flex-col items-center md:mt-10 lg:max-w-xl 2xl:max-w-3xl"
     >
       <h1
         class="font-titulo mb-6 transform text-center text-5xl capitalize sm:mb-10 md:text-6xl xl:text-7xl"
@@ -31,13 +34,12 @@ import BotonWhatsapp from "./BotonWhatsapp.astro";
         Confecciones únicas con estilo propio
       </h1>
       <p
-        class="text-md mb-7 text-center leading-relaxed text-pretty sm:text-start md:text-lg"
+        class="text-md mb-7 text-center leading-relaxed text-pretty sm:text-start md:text-lg 2xl:text-xl"
       >
-        No solo confecciono ropa, <strong>creo piezas</strong> que reflejan tu <strong
-          >esencia</strong
-        > y te hacen sentir <strong>únic@</strong> en cada paso. <strong
-          >Descubre nuestras creaciones</strong
-        > y encuentra el estilo que te representa.
+        No solo confecciono ropa, <strong>creo piezas</strong> que reflejan tu
+        <strong>esencia</strong> y te hacen sentir <strong>únic@</strong> en cada
+        paso. <strong>Descubre nuestras creaciones</strong> y encuentra el estilo
+        que te representa.
       </p>
     </div>
   </div>
