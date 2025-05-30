@@ -19,8 +19,63 @@ const { titulo, descripcion } = Astro.props as Props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="#" />
-    <meta name="description" content={descripcion} />
+    <link rel="canonical" href="https://andreita-confecciones.vercel.app/" />
     <title>{titulo}</title>
+    <meta name="author" content="roydev-dw" />
+    <meta name="publisher" content="roydev-dw" />
+    <meta
+      name="copyright"
+      content="© 2025 Andreita Confecciones. Todos los derechos reservados."
+    />
+    <meta name="description" content={descripcion} />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="scrunchies, accesorios hechos a mano, bolsos artesanales, confecciones, accesorios femeninos, moda sustentable, Andreita Confecciones"
+    />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta
+      property="og:url"
+      content="https://andreita-confecciones.vercel.app/"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Andreita Confecciones | Accesorios hechos a mano con amor"
+    />
+    <meta
+      property="og:description"
+      content="Accesorios originales como scrunchies, estuches y bolsos, hechos a mano en Chile. Diseños únicos para personas auténticas. ¡Conócenos!"
+    />
+    <meta
+      property="og:image"
+      content="https://andreita-confecciones.vercel.app/og-image.webp"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:domain"
+      content="andreita-confecciones.vercel.app"
+    />
+    <meta
+      property="twitter:url"
+      content="https://andreita-confecciones.vercel.app/"
+    />
+    <meta
+      name="twitter:title"
+      content="Andreita Confecciones | Moda artesanal con estilo"
+    />
+    <meta
+      name="twitter:description"
+      content="Scrunchies, bolsos y accesorios confeccionados a mano en Chile. Diseños exclusivos con identidad."
+    />
+    <meta
+      name="twitter:image"
+      content="https://andreita-confecciones.vercel.app/og-image.webp"
+    />
+
     <ClientRouter />
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   </head>
